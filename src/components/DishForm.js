@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import Backdrop from './Backdrop'
 import FormElement from './FormElement'
-import { useBodyScrollLock } from '../hooks/bodyScrollLock'
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock'
 import { useOnClickOutside } from '../hooks/useOnClickOutside'
 import './dishForm.css'
 const DishForm = (props) => {
