@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from 'react'
+import { useTitleInput } from './hooks/useTitleInput'
+//import MouseTracker from './components/MouseTracker'
+import Dishes from './components/Dishes'
+import DishForm from './components/DishForm'
 
-function App() {
+const App = () => {
+  const [name, setName] = useTitleInput('playground')
+  const ref = useRef()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main-wrapper' ref={ref}>
+      {/* <MouseTracker>
+        <h1 onClick={() => ref.current.classList.add('new-fake-class')}>
+          Level Up Dishes
+        </h1>
+      </MouseTracker> */}
+      <DishForm />
+      <Dishes />
+      {/* change title */}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+        }}
+      >
+        <label>Enter new tab name </label> &nbsp; &nbsp;
+        <input type='text' onChange={(e) => setName(e.target.value)} value={name} />
+      </form>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
