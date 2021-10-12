@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+
 const style = {
   position: 'fixed',
   top: 0,
